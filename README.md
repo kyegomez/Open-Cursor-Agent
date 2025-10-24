@@ -14,12 +14,14 @@ Open Cursor Agent is a sophisticated AI agent capable of:
 
 ## Features
 
-- File system operations (read, write, search, manage)
-- Command execution with timeout and security controls
-- Web search integration for real-time information
-- Task dependency management with priority awareness
-- Execution history tracking and logging
-- Workspace isolation with security-first approach
+| Feature                                             | Description                                                 |
+|-----------------------------------------------------|-------------------------------------------------------------|
+| File system operations                              | Read, write, search, and manage files                       |
+| Command execution                                   | Execute commands with timeout and security controls         |
+| Web search integration                              | Access real-time information via web search                 |
+| Task dependency management                          | Manage tasks with priority awareness                        |
+| Execution history tracking and logging              | Record and monitor action history and logs                  |
+| Workspace isolation                                | Ensure security-first approach to isolate workspace         |
 
 ## Installation
 
@@ -32,7 +34,7 @@ Open Cursor Agent is a sophisticated AI agent capable of:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Open-Cursor-Agent.git
+git clone https://github.com/kyegomez/Open-Cursor-Agent
 cd Open-Cursor-Agent
 
 # Install dependencies
@@ -115,19 +117,6 @@ The agent operates through a state machine with the following phases:
 - `ERROR`: Error encountered during execution
 - `PAUSED`: Execution temporarily halted
 
-## Project Structure
-
-```
-Open-Cursor-Agent/
-├── open_cursor/
-│   ├── __init__.py
-│   ├── main.py          # Core agent implementation
-│   └── prompts.py       # System prompts
-├── example.py           # Usage examples
-├── requirements.txt     # Project dependencies
-├── README.md           # This file
-└── LICENSE             # License information
-```
 
 ## Contributing
 
