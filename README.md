@@ -38,12 +38,7 @@ Open Cursor Agent is a sophisticated AI agent capable of:
 ### Setup
 
 ```bash
-# Clone the repository
-git clone https://github.com/kyegomez/Open-Cursor-Agent
-cd Open-Cursor-Agent
-
-# Install dependencies
-pip install -r requirements.txt
+pip3 install -U open-cursor-agent
 ```
 
 
