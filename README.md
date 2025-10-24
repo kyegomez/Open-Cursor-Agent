@@ -1,6 +1,11 @@
 # Open Cursor Agent
 
-An open-source autonomous AI agent implementation inspired by Cursor Agent, built with the Swarms framework. This production-grade agent can autonomously plan, execute, and complete complex tasks using a combination of Large Language Model reasoning and tool execution.
+[![Powered by Swarms](https://img.shields.io/badge/Powered%20by-Swarms-blue)](https://github.com/kyegomez/swarms)
+[![Swarms Framework](https://img.shields.io/badge/Built%20with-Swarms%20Framework-orange)](https://docs.swarms.world)
+
+An open-source autonomous AI agent implementation inspired by Cursor Agent, built on top of **[Swarms](https://github.com/kyegomez/swarms)** - the enterprise-grade production-ready multi-agent orchestration framework. This production-grade agent can autonomously plan, execute, and complete complex tasks using a combination of Large Language Model reasoning and tool execution.
+
+> **Built with Swarms Framework** - Leveraging the power of [Swarms](https://github.com/kyegomez/swarms), the leading open-source framework for building production-ready multi-agent systems. Swarms provides the robust infrastructure, agent orchestration, and enterprise-grade reliability that makes this agent possible.
 
 ## Overview
 
@@ -70,7 +75,6 @@ Create a transformer model in pytorch in a file called transformer.py"
 result = agent.run(task_description)
 
 print(result)
-
 ```
 
 ## Architecture
@@ -133,4 +137,4 @@ This project is licensed under the terms specified in the LICENSE file.
 
 ## Acknowledgments
 
-Built with the Swarms framework and inspired by the Cursor Agent architecture. Special thanks to the open-source community for their contributions to AI agent development.
+**Special Thanks**: To [Swarms Team](https://twitter.com/swarms_corp) and the entire Swarms community for building the infrastructure that makes advanced AI agents accessible to everyone. This project stands on the shoulders of giants.
