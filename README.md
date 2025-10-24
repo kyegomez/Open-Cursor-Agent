@@ -74,99 +74,25 @@ if __name__ == "__main__":
 ## Architecture
 
 ```mermaid
-graph TB
-    subgraph "Open Cursor Agent"
-        A[User Task Input] --> B[OpenCursorAgent]
-        B --> C[Agent Context Manager]
-        
-        C --> D{State Machine}
-        
-        D -->|INITIALIZING| E[Task Initialization]
-        D -->|PLANNING| F[Planning Phase]
-        D -->|EXECUTING| G[Execution Phase]
-        D -->|THINKING| H[Thinking Phase]
-        D -->|COMPLETED| I[Task Completion]
-        D -->|ERROR| J[Error Handler]
-        
-        E --> K[Create Task Context]
-        K --> D
-        
-        F --> L[Planning Agent]
-        L --> M[LLM: GPT-4o]
-        M --> N[create_plan Tool]
-        N --> O[Generate Subtasks]
-        O --> P[Task Queue]
-        P --> D
-        
-        G --> Q[Execution Agent]
-        Q --> M
-        Q --> R[Tool Registry]
-        
-        R --> S[File Operations]
-        R --> T[System Operations]
-        R --> U[Task Management]
-        R --> V[Information Gathering]
-        
-        S --> S1[read_file]
-        S --> S2[write_file]
-        S --> S3[search_files]
-        S --> S4[list_directory]
-        
-        T --> T1[create_directory]
-        T --> T2[delete_file]
-        T --> T3[execute_command]
-        
-        U --> U1[subtask_done]
-        U --> U2[complete_task]
-        
-        V --> V1[web_search]
-        
-        Q --> W[Execute Tool]
-        W --> X[Update Task Status]
-        X --> D
-        
-        H --> Y[Thinking Agent]
-        Y --> M
-        Y --> Z[Analyze Results]
-        Z --> AA[Determine Next Action]
-        AA --> D
-        
-        I --> AB[Finalize Execution]
-        AB --> AC[Return Results]
-        
-        J --> AD[Log Error]
-        AD --> AC
-    end
+graph LR
+    A[User Task] --> B[Initialize]
+    B --> C[Planning]
+    C --> D[Execution]
+    D --> E[Thinking]
+    E --> F{Complete?}
+    F -->|No| D
+    F -->|Yes| G[Results]
     
-    subgraph "External Services"
-        M -.->|API Call| AE[OpenAI API]
-        V1 -.->|Search| AF[Web Search Service]
-    end
+    C -.-> H[LLM]
+    D -.-> H
+    E -.-> H
+    D -.-> I[Tools]
     
-    subgraph "Security Layer"
-        AG[Workspace Path Validation]
-        AH[Command Timeout Control]
-        AI[Path Traversal Prevention]
-        
-        R --> AG
-        T3 --> AH
-        S --> AI
-    end
-    
-    subgraph "Logging & Monitoring"
-        AJ[Loguru Logger]
-        AK[Execution History]
-        AL[State Tracker]
-        
-        B --> AJ
-        D --> AL
-        W --> AK
-    end
-    
-    style B fill:#4a90e2,stroke:#333,stroke-width:3px,color:#fff
-    style D fill:#e94b3c,stroke:#333,stroke-width:2px,color:#fff
-    style M fill:#50c878,stroke:#333,stroke-width:2px,color:#fff
-    style R fill:#f39c12,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#4a90e2,color:#fff
+    style C fill:#9b59b6,color:#fff
+    style D fill:#e74c3c,color:#fff
+    style E fill:#f39c12,color:#fff
+    style G fill:#27ae60,color:#fff
 ```
 
 ### Execution Flow
