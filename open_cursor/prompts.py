@@ -139,7 +139,9 @@ def thinking_agent_system_prompt() -> str:
     return "You are a thinking agent. Analyze the current situation and decide next actions. Use the think tool to provide your analysis."
 
 
-def planning_prompt(task_description: str, workspace_path: str) -> str:
+def planning_prompt(
+    task_description: str, workspace_path: str
+) -> str:
     """
     Planning prompt for task breakdown.
 
@@ -362,7 +364,9 @@ def web_search_prompt(query: str) -> str:
         """
 
 
-def error_handling_prompt(error_message: str, current_context: Dict[str, Any]) -> str:
+def error_handling_prompt(
+    error_message: str, current_context: Dict[str, Any]
+) -> str:
     """
     Prompt for error handling and recovery.
 

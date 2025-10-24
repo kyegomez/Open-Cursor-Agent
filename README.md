@@ -26,7 +26,8 @@ Open Cursor Agent is a sophisticated AI agent capable of:
 | Web search integration                              | Access real-time information via web search                 |
 | Task dependency management                          | Manage tasks with priority awareness                        |
 | Execution history tracking and logging              | Record and monitor action history and logs                  |
-| Workspace isolation                                | Ensure security-first approach to isolate workspace         |
+| Workspace isolation                                 | Ensure security-first approach to isolate workspace         |
+| **Custom tool selection**                           | **Restrict agent to specific tools (search, code, etc.)**   |
 
 ## Installation
 
@@ -53,6 +54,8 @@ ANTHROPIC_API_KEY=""
 
 ## Usage
 
+### Basic Usage
+
 ```python
 from open_cursor.main import OpenCursorAgent
 
@@ -71,6 +74,74 @@ result = agent.run(task_description)
 
 print(result)
 ```
+
+### Custom Tool Selection
+
+You can customize which tools the agent has access to by specifying the `allowed_tools` parameter:
+
+```python
+from open_cursor.main import OpenCursorAgent
+
+# Agent with only search and file reading capabilities
+search_agent = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path="./workspace",
+    allowed_tools=["web_search", "read_file"],
+)
+
+# Agent with only code/file operation capabilities
+code_agent = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path="./workspace",
+    allowed_tools=["read_file", "write_file", "list_directory", "search_files"],
+)
+
+# Agent with command execution capabilities
+command_agent = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path="./workspace",
+    allowed_tools=["execute_command", "read_file"],
+)
+
+# Agent with ALL tools - multiple ways to enable all tools:
+# Method 1: Don't specify allowed_tools (default is None)
+full_agent = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path="./workspace",
+)
+
+# Method 2: Explicitly pass "all"
+full_agent_explicit = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path="./workspace",
+    allowed_tools=["all"],
+)
+
+# Method 3: Pass empty list
+full_agent_empty = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path="./workspace",
+    allowed_tools=[],
+)
+```
+
+**Available Tools:**
+- `read_file`: Read contents of files
+- `write_file`: Write content to files
+- `search_files`: Search for files matching patterns
+- `list_directory`: List directory contents
+- `execute_command`: Execute shell commands
+- `web_search`: Search the web for information
+- `create_directory`: Create new directories
+- `delete_file`: Delete files or directories
+
+**Special Values for allowed_tools:**
+- `None` (default): All tools are available
+- `[]` (empty list): All tools are available
+- `["all"]`: All tools are available
+- `["tool1", "tool2", ...]`: Only specified tools are available
+
+**Note:** Planning and control tools (`create_plan`, `think`, `complete_task`, `subtask_done`) are always available regardless of the `allowed_tools` setting, as they are essential for agent operation.
 
 ## Architecture
 

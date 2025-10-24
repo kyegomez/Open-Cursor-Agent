@@ -17,7 +17,9 @@ class DevelopmentTeam:
         director_model_name: str = "gpt-4.1",
         verbose: bool = False,
         add_collaboration_prompt: bool = True,
-        planning_director_agent: Optional[Union[Agent, Callable, Any]] = None,
+        planning_director_agent: Optional[
+            Union[Agent, Callable, Any]
+        ] = None,
         director_feedback_on: bool = True,
         interactive: bool = False,
         director_reasoning_model_name: str = "o3-mini",
@@ -32,7 +34,9 @@ class DevelopmentTeam:
         self.agents = agents
         self.max_loops = max_loops
         self.output_type = output_type
-        self.feedback_director_model_name = feedback_director_model_name
+        self.feedback_director_model_name = (
+            feedback_director_model_name
+        )
         self.director_name = director_name
         self.director_model_name = director_model_name
         self.verbose = verbose
