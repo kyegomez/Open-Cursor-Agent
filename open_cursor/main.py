@@ -1812,3 +1812,7 @@ Execute the task now using the appropriate tool.
             error_msg = f"Error deleting {path}: {str(e)}"
             logger.error(error_msg)
             return error_msg
+
+    def batched_run(self, tasks: List[str]):
+        """Run the agent on a list of tasks in batches."""
+        return [self.run(task) for task in tasks]
