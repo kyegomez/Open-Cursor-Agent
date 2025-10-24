@@ -1,0 +1,5 @@
+python-dotenv
+loguru
+swarms
+swarms-tools
+
