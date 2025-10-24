@@ -39,9 +39,16 @@ cd Open-Cursor-Agent
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
-# Configure environment variables
-echo "OPENAI_API_KEY=your_api_key_here" > .env
+
+## Environment Variables
+
+
+```txt
+WORKSPACE_DIR=""
+OPENAI_API_KEY=""
+ANTHROPIC_API_KEY=""
 ```
 
 ## Usage
