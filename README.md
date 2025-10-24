@@ -47,30 +47,23 @@ echo "OPENAI_API_KEY=your_api_key_here" > .env
 ## Usage
 
 ```python
-import asyncio
 from open_cursor.main import OpenCursorAgent
 
-async def main():
-    # Initialize the agent
-    agent = OpenCursorAgent(
-        model_name="gpt-4o",
-        workspace_path="./workspace",
-        temperature=0.7,
-        verbose=True
-    )
-    
-    # Define your task
-    task_description = """
-    Create a Python script that processes CSV files and generates a summary report.
-    """
-    
-    # Run the agent
-    result = await agent.run(task_description)
-    
-    print(f"Task Status: {result['status']}")
+# Initialize the agent
+agent = OpenCursorAgent(
+    model_name="gpt-4o",
+    workspace_path=".",
+)
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# Example task
+task_description = """
+Create a transformer model in pytorch in a file called transformer.py"
+"""
+
+result = agent.run(task_description)
+
+print(result)
+
 ```
 
 ## Architecture

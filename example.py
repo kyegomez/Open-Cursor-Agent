@@ -1,7 +1,5 @@
 from open_cursor.main import OpenCursorAgent
 
-
-"""Example usage of the Cursor Agent."""
 # Initialize the agent
 agent = OpenCursorAgent(
     model_name="gpt-4o",
